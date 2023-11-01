@@ -1,13 +1,15 @@
 // @todo: Темплейт карточки
-const cardTemplate = document.getElementById('card-template');
+const cardTemplate = document.getElementById('card-template').content;
 
 // @todo: DOM узлы
 const placesList = document.querySelector('.places__list');
+const editProfile = document.querySelector(".profile__edit-button");
+const addCard = document.querySelector(".profile__add-button");
 
 // @todo: Функция создания карточки
 
 function createCard(cardData, deleteCardFunction) {
-  const card = cardTemplate.content.cloneNode(true);
+  const card = cardTemplate.querySelector(".card").cloneNode(true);
 
   card.querySelector('.card__image').src = cardData.link;
   card.querySelector('.card__image').alt = cardData.name;
