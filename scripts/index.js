@@ -3,8 +3,6 @@ const cardTemplate = document.querySelector('#card-template').content;
 
 // @todo: DOM узлы
 const placesList = document.querySelector('.places__list');
-//const editProfile = document.querySelector(".profile__edit-button");
-//const addCard = document.querySelector(".profile__add-button");
 
 // @todo: Функция создания карточки
 
@@ -27,7 +25,7 @@ function deleteCard(event) {
 // @todo: Вывести карточки на страницу
 function renderCards() {
   initialCards.forEach(card => {
-  placesList.append(createCard(card, deleteCard));
+    placesList.append(createCard(card, deleteCard));
   });
 }
 document.addEventListener('DOMContentLoaded', function() {
