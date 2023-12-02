@@ -1,5 +1,5 @@
 import '../pages/index.css';
-import { addCards, addCardToCardsArray } from './components/card.js';
+import { addCards, addNewCard } from './components/card.js';
 import { openPopup, closePopup, openPopupByButton } from './components/modal.js';
 
 addCards();
@@ -37,16 +37,13 @@ function changeProfile(evt) {
   profileName.textContent = profileFormName.value;
   profileDescription.textContent = profileFormDescription.value;
   closePopup(popupProfile);
-  profileForm.reset();
 }
 
-// 
-setProfileFormValues();
 profileForm.addEventListener('submit', changeProfile);
-newPlace.addEventListener('submit', addCardToCardsArray);
+newPlace.addEventListener('submit', addNewCard);
 openPopupByButton(addButton, popupAddNewCard);
 
-// popup изображение
+//открытие изображения
 export function openImagePopup(link, alt) {
   popupImageImage.src = link;
   popupImageImage.alt = alt;
