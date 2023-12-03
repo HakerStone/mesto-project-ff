@@ -1,18 +1,15 @@
 import '../pages/index.css';
-import { addCards, addNewCard } from './components/card.js';
+import { addCards, addNewCard, popupAddNewCard } from './components/card.js';
 import { openPopup, closePopup, openPopupByButton } from './components/modal.js';
 
 addCards();
 
+const popups = document.querySelectorAll('.popup');
+
 const popupProfile = document.querySelector('.popup_type_edit');
-export const popupAddNewCard = document.querySelector('.popup_type_new-card');
-export const popupImage = document.querySelector('.popup_type_image');
 
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
-
-const popupImageImage = popupImage.querySelector('.popup__image');
-const popupImageCaption = popupImage.querySelector('.popup__caption');
 
 const profileName = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__description');
@@ -43,10 +40,11 @@ profileForm.addEventListener('submit', changeProfile);
 newPlace.addEventListener('submit', addNewCard);
 openPopupByButton(addButton, popupAddNewCard);
 
-//открытие изображения
-export function openImagePopup(link, alt) {
-  popupImageImage.src = link;
-  popupImageImage.alt = alt;
-  popupImageCaption.textContent = alt;
-  openPopup(popupImage);
-}
+// Закрыть при клике на темный фон
+popups.forEach(function (popup) {
+  popup.addEventListener('click', function (evt) {
+    if (evt.target === evt.currentTarget || evt.target.classList.contains('popup__close')){
+      closePopup(popup);
+    }
+  });
+});
