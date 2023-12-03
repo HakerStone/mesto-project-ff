@@ -1,7 +1,7 @@
 import { initialCards } from './cards.js';
-import { openImagePopup, popupAddNewCard } from '../index.js';
-import { closePopup } from './modal.js';
+import { closePopup, openImagePopup } from './modal.js';
 
+export const popupAddNewCard = document.querySelector('.popup_type_new-card');
 export const cardsSection = document.querySelector('.places__list');
 const cardTemplate = document.querySelector('#card-template').content;
 const newPlaceForm = document.forms.newPlace;
@@ -57,4 +57,4 @@ export function addNewCard(evt) {
   cardsSection.insertBefore(newPlaceCard, cardsSection.firstChild);
   newPlaceForm.reset();
   closePopup(popupAddNewCard);
-} 
+}
