@@ -1,7 +1,9 @@
 import '../pages/index.css';
 import { addCards, addNewCard, popupAddNewCard } from './components/card.js';
 import { openPopup, closePopup, openPopupByButton } from './components/modal.js';
-
+// import { enableValidation, clearValidation } from './components/validation.js';
+// import { showInputError } from './components/validation.js';
+// import {getInitialCards, getUser, setUserInfo, uploadCard, uploadAvatar, deleteCardFromServer } from './components/api.js';
 addCards();
 
 const popups = document.querySelectorAll('.popup');
@@ -48,3 +50,4 @@ popups.forEach(function (popup) {
     }
   });
 });
+
