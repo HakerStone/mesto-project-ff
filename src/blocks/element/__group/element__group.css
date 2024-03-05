@@ -1,0 +1,9 @@
+.element__group{
+    padding: 25px 20px;
+    margin: 0;
+    width: 246px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
