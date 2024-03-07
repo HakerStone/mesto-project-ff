@@ -68,10 +68,14 @@ const createCard = (card, userId, deleteCardFn, likeCardFn, openFullImageFn) => 
 
 const renderCard = (item, userId, container, likeCard, deleteCard, openFullImageFn, place = "end") => {
   const cardElement = createCard(item, userId, deleteCard, likeCard, openFullImageFn);
-  if (place === "end") {
-    container.append(cardElement);
+  if (container) {
+    if (place === "end") {
+      container.append(cardElement);
+    } else {
+      container.prepend(cardElement);
+    }
   } else {
-    container.prepend(cardElement);
+    console.error("Ошибка: значение контейнера не определено или равно null.");
   }
 };
 
