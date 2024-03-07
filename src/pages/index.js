@@ -118,7 +118,7 @@ const handleNewCardFormSubmit = async (evt) => {
   const link = popupCardForm.elements.link.value;
   postNewCard({ name, link })
     .then((newCard) => {
-      renderCard(newCard, userId, placesList, likeCard, deleteCard, openImagePopup, "start");
+      renderCard(newCard, userId, cardContainer, likeCard, deleteCard, openImagePopup, "start");
       closeModal(popupCard);
     })
     .catch((err) => {
@@ -172,7 +172,9 @@ buttonOpenPopupCard.addEventListener("click", () => {
   openModal(popupCard);
 });
 
-popupCardForm.addEventListener("submit", handleNewCardFormSubmit);
+popupCardForm.addEventListener("submit", (evt) => {
+  handleNewCardFormSubmit(evt);
+});
 
 popupCard.addEventListener("click", (evt) => {
   handleOverlayClose(evt);
